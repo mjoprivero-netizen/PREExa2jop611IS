@@ -1,136 +1,205 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="conexion.jsp" %>
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plataforma de IA Generativa</title>
-    <!-- Bootstrap 5 CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            /* Fondo con tu imagen local y capa oscura superpuesta para legibilidad */
-            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.90)), 
-                        url('img/tecfondo.avif') no-repeat center center fixed;
-            background-size: cover;
-            color: #f8f9fa;
-            min-height: 100vh;
-        }
-        .hero-section {
-            background: rgba(30, 41, 59, 0.75);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: white;
-            border-radius: 1rem;
-        }
-        .card {
-            background: rgba(30, 41, 59, 0.85) !important;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-            color: #f8f9fa;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 .5rem 1rem rgba(0,0,0,.5)!important;
-            border-color: rgba(13, 110, 253, 0.5) !important;
-        }
-        .custom-box {
-            background: rgba(30, 41, 59, 0.8) !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-            color: #f8f9fa !important;
-        }
-        .text-muted {
-            color: #adb5bd !important;
-        }
-    </style>
-</head>
-<body>
+<html>
+    <head>
+        <title>Catálogo de Cursos - IA Generativa</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-----------------------------BOOTSTRAP----------------------------->
+                <!--Icono-->
+                <link rel="Icon" type="img/png" href="img/logoicono.png">
+                <!-- Google font -->
+                <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+                <!-- Bootstrap -->
+                <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+                <!-- Slick -->
+                <link type="text/css" rel="stylesheet" href="css/slick.css"/>
+                <link type="text/css" rel="stylesheet" href="css/slick-theme.css"/>
+                <!-- nouislider -->
+                <link type="text/css" rel="stylesheet" href="css/nouislider.min.css"/>
+                <!-- Font Awesome Icon -->
+                <link rel="stylesheet" href="css/font-awesome.min.css">
+                <!-- Custom stlylesheet -->
+                <link type="text/css" rel="stylesheet" href="css/style.css"/>
+                <!--Ventanas emergentes-->
+                <link rel="stylesheet" type="text/css" href="css/ventanas.css">
+        <!-----------------------------/BOOTSTRAP----------------------------->
+    </head>
+    <body>
+        <!-- HEADER -------------------------------------------------------------------->
+                <header>
+                        <!-- MAIN HEADER -->
+                        <div id="header">
+                                <!-- container -->
+                                <div class="container">
+                                        <!-- row -->
+                                        <div class="row">
 
-    <!-- Navbar superior -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75 shadow-sm border-bottom border-secondary">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#"><i class="fa-solid fa-brain text-info me-2"></i> IA Generativa Hub</a>
-            <span class="navbar-text text-light small">Alumno: Maximiliano Jop (Grupo 7001)</span>
-        </div>
-    </nav>
+                                                <!-- LOGO -->
+                                                <div class="col-md-9">
+                                                        <div class="header-logo">
+                                                                <a href="#" class="logo">
+                                                                        <img src="./img/logoTUVCH.png" alt="">
+                                                                </a>
+                                                        </div>
+                                                </div>
+                                                <!-- /LOGO -->
 
-    <div class="container my-5">
-        <!-- Header Principal -->
-        <header class="text-center mb-5 p-5 hero-section shadow-lg">
-            <h1 class="display-5 fw-bold text-white mb-3">Plataforma de Enseñanza de IA Generativa</h1>
-            <p class="lead text-light opacity-75">Espacio académico para difundir cursos, tips, consejos y recursos de Inteligencia Artificial.</p>
-        </header>
+                                                <!-- ACCOUNT -->
+                                                <div class="col-md-3 clearfix">
+                                                        <div class="header-ctn">
+                                                                <div class="container">
+                                                                <ul class="header-links pull-right">               
+                                                                <li><a href="index.html"><i class="fa fa-user-o"></i>Alumno: Maximiliano Jop</a></li>
+                                                                </ul>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <!-- /ACCOUNT -->
+                                        </div>
+                                        <!-- row -->
+                                </div>
+                                <!-- container -->
+                        </div>
+                        <!-- /MAIN HEADER -->
+                </header>
+        <!-- /HEADER ------------------------------------------------------------------->
 
-        <!-- Sección de Tips Rápidos -->
-        <section class="mb-5">
-            <h2 class="h4 mb-3 text-white fw-bold"><i class="fa-solid fa-lightbulb text-warning me-2"></i> Tips Rápidos de Prompt Engineering</h2>
-            <div class="row g-3">
-                <div class="col-md-4">
-                    <div class="p-4 rounded-4 shadow-sm h-100 custom-box border-start border-primary border-4">
-                        <h6 class="fw-bold text-info">1. Sé específico</h6>
-                        <p class="small text-muted mb-0">Define claramente el rol, el contexto y el formato de salida que esperas de la IA.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-4 rounded-4 shadow-sm h-100 custom-box border-start border-success border-4">
-                        <h6 class="fw-bold text-success">2. Usa ejemplos (Few-Shot)</h6>
-                        <p class="small text-muted mb-0">Proporciona ejemplos previos del resultado que buscas para guiar con mayor precisión al modelo.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-4 rounded-4 shadow-sm h-100 custom-box border-start border-danger border-4">
-                        <h6 class="fw-bold text-danger">3. Divide tareas complejas</h6>
-                        <p class="small text-muted mb-0">Usa cadenas de pensamiento (Chain of Thought) para pedirle a la IA que resuelva paso a paso.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- NAVIGATION ---------------------------------------------------------------->
+                <nav id="navigation">
+                        <!-- container -->
+                        <div class="container">
+                                <!-- responsive-nav -->
+                                <div id="responsive-nav">
+                                        <!-- NAV -->
+                                        <ul class="main-nav nav navbar-nav">
+                                                <li><a href="index.html">Inicio</a></li>
+                                                <li><a href="cursos.jsp">Catálogo (RF-001)</a></li>
+                                                <li><a href="#openModal">Acerca de</a>
+                                                    <div id="openModal" class="modalDialog">
+                                                            <div id="contenidomod">
+                                                                    <a href="#close" title="Close" class="close">X</a>
+                                                                    <br><h1>Plataforma IA Generativa</h1>
+                                                                    <p>Sistema web académico para la gestión de cursos, tips y recursos de Inteligencia Artificial.</p>
+                                                            </div>
+                                                    </div></li>
+                                        </ul>
+                                        <!-- /NAV -->
+                                </div>
+                                <!-- /responsive-nav -->
+                        </div>
+                        <!-- /container -->
+                </nav>
+        <!-- /NAVIGATION --------------------------------------------------------------->
 
-        <!-- Catálogo de Cursos Dinámico desde Base de Datos -->
-        <section>
-            <h2 class="h4 mb-4 text-white fw-bold"><i class="fa-solid fa-graduation-cap text-info me-2"></i> Catálogo de Cursos (RF-001)</h2>
-            <div class="row row-cols-1 row-cols-md-2 g-4">
-                <%
-                    try {
-                        Statement stmt = conn.createStatement();
-                        ResultSet rs = stmt.executeQuery("SELECT * FROM curso");
-                        while(rs.next()) {
-                %>
-                <div class="col">
-                    <div class="card h-100 rounded-4 shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <span class="badge bg-info text-dark px-3 py-2 rounded-pill fw-bold">Curso ID: <%= rs.getInt("id_curso") %></span>
-                                <span class="text-muted small"><i class="fa-regular fa-calendar me-1"></i> <%= rs.getDate("fecha_inicio") %></span>
-                            </div>
-                            <h5 class="card-title fw-bold text-white mb-2"><%= rs.getString("nombre") %></h5>
-                            <p class="card-text text-muted"><%= rs.getString("descripcion") %></p>
-                            <div class="alert custom-box border small mb-0 py-2">
-                                <strong class="text-warning">Requisitos:</strong> <span class="text-light"><%= rs.getString("requisitos") %></span>
-                            </div>
+        <!-- CONTENIDO PRINCIPAL: CATÁLOGO DE CURSOS (RF-001) -->
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-title">
+                            <h3 class="title">Catálogo de Cursos (RF-001)</h3>
+                            <p>Gestión de información de cursos de Inteligencia Artificial Generativa.</p>
                         </div>
                     </div>
                 </div>
-                <%
+
+                <!-- FILA DE TARJETAS DINÁMICAS DESDE MYSQL -->
+                <div class="row">
+                    <%
+                        try {
+                            Statement stmt = conn.createStatement();
+                            ResultSet rs = stmt.executeQuery("SELECT * FROM curso");
+                            while(rs.next()) {
+                    %>
+                    <div class="col-md-4 col-xs-6" style="margin-bottom: 25px;">
+                        <div class="panel panel-default" style="border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                            <div class="panel-body">
+                                <span class="label label-primary">ID Curso: <%= rs.getInt("id_curso") %></span>
+                                <span class="pull-right text-muted" style="font-size: 12px;"><i class="fa fa-calendar"></i> <%= rs.getDate("fecha_inicio") %></span>
+                                <h4 style="margin-top: 15px; font-weight: bold;"><%= rs.getString("nombre") %></h4>
+                                <p class="text-muted"><%= rs.getString("descripcion") %></p>
+                                <hr style="margin: 10px 0;">
+                                <p style="font-size: 13px;"><strong class="text-danger">Requisitos:</strong> <%= rs.getString("requisitos") %></p>
+                            </div>
+                        </div>
+                    </div>
+                    <%
+                            }
+                            rs.close();
+                            stmt.close();
+                            if(conn != null) conn.close();
+                        } catch(Exception e) {
+                            out.println("<div class='alert alert-danger'>Error al cargar cursos: " + e.getMessage() + "</div>");
                         }
-                        rs.close();
-                        stmt.close();
-                        if(conn != null) conn.close();
-                    } catch(Exception e) {
-                        out.println("<div class='alert alert-danger'>Error: " + e.getMessage() + "</div>");
-                    }
-                %>
+                    %>
+                </div>
+                <!-- /FILA DE TARJETAS -->
             </div>
-        </section>
-    </div>
+        </div>
+        <!-- /CONTENIDO PRINCIPAL -->
 
-    <!-- Footer -->
-    <footer class="text-center py-4 text-muted small border-top border-secondary bg-dark bg-opacity-75 mt-5">
-        <p class="mb-0">Universidad de Londres - Ingeniería de Software | Práctica 2do Parcial</p>
-    </footer>
+        <!-- FOOTER -------------------------------------------------------------------->
+                <footer id="footer">
+                         <div class="section">
+                <!-- container -->
+                <div class="container">
+                    <!-- row -->
+                    <div class="row">
+                        
+                        <div class="col-md-3 col-xs-6">
+                            <div class="footer">
+                                <h3 class="footer-title">Contáctanos</h3>
+                                <p>Tecnológico Universitario del Valle de Chalco</p>
+                                <ul class="footer-links">
+                                    <li><i class="fa fa-map-marker"></i>Av. Tezozómoc s/n, Col. Alfredo Baranda, Valle de Chalco</li>
+                                    <li><i class="fa fa-phone"></i>1708 5959</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-3 col-xs-6">
+                            <div class="footer" style="display: inline-block;">
+                                <br><br><img src="img/logibero.png" style="display: inline-block;" width="200px">
+                            </div>       
+                        </div>
+                        
+                        <div class="col-md-3 col-xs-6">
+                            <div class="footer" style="display: inline-block;">
+                                <br><img src="img/logsuj.png" style="display: inline-block;" width="200px">
+                            </div> 
+                        </div>
 
-</body>
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /container -->
+            </div>
+            <!-- /top footer -->
+
+            <!-- bottom footer -->
+            <div id="bottom-footer" class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <span class="copyright">
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> Universidad de Londres - Grupo 5001 | Todos los derechos reservados
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /bottom footer -->
+                </footer>
+        <!-- /FOOTER -------------------------------------------------------------------> 
+
+        <!-- jQuery Plugins -->
+                <script src="js/jquery.min.js"></script>
+                <script src="js/bootstrap.min.js"></script>
+                <script src="js/slick.min.js"></script>
+                <script src="js/nouislider.min.js"></script>
+                <script src="js/jquery.zoom.min.js"></script>
+                <script src="js/main.js"></script>
+    </body>
 </html>
